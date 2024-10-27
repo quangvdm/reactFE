@@ -1,0 +1,37 @@
+.custom-input {
+}
+.custom-input .input-group {
+  @apply flex items-center overflow-hidden rounded-md border border-stroke dark:border-form-strokedark dark:bg-form-input;
+
+  & .input-group-item {
+    @apply flex min-w-0 p-2.5;
+    & + input {
+      @apply pe-0;
+    }
+    & > * {
+      @apply m-auto flex-1;
+    }
+    &.transparent {
+      @apply bg-transparent;
+    }
+    &.normal {
+      @apply bg-slate-300 dark:bg-slate-700;
+    }
+  }
+
+  &:has(:where(:focus, :active)):not(:has(:disabled)) {
+    @apply border-primary;
+  }
+  &:has(:disabled) {
+    @apply cursor-default bg-opacity-50 text-opacity-50 dark:bg-slate-700;
+  }
+  &:has(:invalid) {
+    @apply border-danger;
+  }
+  & input {
+    @apply px-0 ps-2.5 focus:outline-none;
+    &:disabled {
+      @apply text-opacity-50;
+    }
+  }
+}
